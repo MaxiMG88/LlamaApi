@@ -1,0 +1,49 @@
+
+
+  <h1 class="heading"><strong>HTTP </strong>Demo</h1>
+  
+
+  <div class="form-group">
+     <label for="deviceId">DeviceId</label>
+     <input type="text" class="form-control" name="deviceId" [(ngModel)]="deviceId">
+
+     <label for="from">From</label>
+     <input type="text" class="form-control" name="from" [(ngModel)]="from">
+
+     <label for="to">To</label>
+     <input type="text" class="form-control" name="to" [(ngModel)]="to">
+  </div>
+
+  <div class="form-group">
+      <button type="button" (click)="getDevice()">Get Device</button>
+  </div>
+
+  <div *ngIf="loading">loading...</div>
+  
+  <div *ngIf="errorMessage" class="alert alert-warning">
+     <strong>Warning!</strong> {{errorMessage}}
+  </div>
+
+  <div class='table-responsive'>
+          <table class='table'>
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>DeviceId</th>
+                      <th>Latitude</th>
+                      <th>Longitude</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let device of devices;">
+                      <td>{{device.id}}</td>
+                      <td>{{device.deviceId}}</td>
+                      <td>{{device.latitude}}</td>
+                      <td>{{device.longitude}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    <pre>{{device | json}}</pre>
+
+
